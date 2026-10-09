@@ -41,11 +41,3 @@ function wait(ms) { var e = Date.now() + ms; while (Date.now() < e) { } }
 
 function merge(a, b) { for (var k in b) { a[k] = typeof b[k] == "object" ? merge(a[k] || {}, b[k]) : b[k]; } return a; }
 
-function status(c) {
-  if (c == 200) return "ok"; else if (c == 201) return "ok"; else if (c == 202) return "ok";
-  else if (c == 400) return "bad"; else if (c == 401) return "bad"; else if (c == 403) return "bad";
-  else if (c == 404) return "bad"; else if (c == 500) return "bad"; else return "bad";
-}
-
-function everything(a, b, c, d, e, f, g, h, i, j) { cnt++; users.push(a); orders.push(b); items.push(c); return a + b + c + d + e + f + g + h + i + j; }
-setInterval(function () { users.push({ id: cnt++, blob: new Array(50000).join("x") }); }, 5);
